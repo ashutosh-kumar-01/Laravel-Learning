@@ -88,5 +88,35 @@ Route::get('/set-cookie',function(){
 });
 
 
+// make a route to delete teh cookie
+Route::get('/delete-cookie',function(){
+    return response('Cookie has been deleted')->cookie('username','',-1);
+});
+
+// make a route for navigating to student result dashboard
+// Route::get('/student/result-2025',function(){
+//     return view('resultDashboard');
+// });
+
+Route::get('/student/result-2025',function(){
+    $Student = [
+    ["name"=>"Ashutosh","rollno"=>1234513,"course"=>"B.Tech CSE","result"=>"A+","cgpa"=>9.5],
+    ["name"=>"Rahul","rollno"=>1234514,"course"=>"B.Tech ECE","result"=>"A","cgpa"=>9.0],
+    ["name"=>"Priya","rollno"=>1234515,"course"=>"B.Tech ME","result"=>"B+","cgpa"=>8.5],
+    ["name"=>"Anjali","rollno"=>1234516,"course"=>"B.Tech CSE","result"=>"A-","cgpa"=>8.8],
+    ["name"=>"Vikram","rollno"=>1234517,"course"=>"B.Tech ECE","result"=>"B","cgpa"=>8.0],
+    ["name"=>"Sneha","rollno"=>1234518,"course"=>"B.Tech ME","result"=>"A+","cgpa"=>9.6],
+    ["name"=>"Rohit","rollno"=>1234519,"course"=>"B.Tech CSE","result"=>"A","cgpa"=>9.1],
+    ["name"=>"Kavya","rollno"=>1234520,"course"=>"B.Tech ECE","result"=>"B+","cgpa"=>8.4],
+    ["name"=>"Aditya","rollno"=>1234521,"course"=>"B.Tech ME","result"=>"A-","cgpa"=>8.7],
+    ["name"=>"Sanya","rollno"=>1234522,"course"=>"B.Tech CSE","result"=>"B","cgpa"=>8.2]
+];
+
+
+    return view('resultDashboard', compact('Student'));
+    return view('resultDashboard', ['Student' => $Student]);
+    return view('resultDashboard')->with('Student', $Student);
+    // return view('resultDashboard')->withStudent($Student);
+});
 
 
