@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BasicController; // import the controller class to use its function in the route
 
 Route::get('/', function () {
     return view('welcome');
@@ -120,3 +121,11 @@ Route::get('/student/result-2025',function(){
 });
 
 
+
+// call controller function in the route
+Route::get('/greet',[BasicController::class,'greet']);
+// route to return some UI from the controller function
+Route::view('/signup','/signup'); //shortcut for opening the view
+route::post('/submitform' ,function(){
+    return "<script> alert('form submitted successfully') </script>";
+});
