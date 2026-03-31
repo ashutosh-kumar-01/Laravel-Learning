@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BasicController; // import the controller class to use its function in the route
+use App\Http\Controllers\Formcontroller;
 
 Route::get('/', function () {
     return view('welcome');
@@ -127,5 +128,10 @@ Route::get('/greet',[BasicController::class,'greet']);
 // route to return some UI from the controller function
 Route::view('/signup','/signup'); //shortcut for opening the view
 route::post('/submitform' ,function(){
-    return "<script> alert('form submitted successfully') </script>";
+    // return "<script> alert('form submitted successfully') </script>";
+    
 });
+
+
+// basic controller so that i can access its fxn 
+Route::get('/formsubmit',[Formcontroller::class,'submit']);
