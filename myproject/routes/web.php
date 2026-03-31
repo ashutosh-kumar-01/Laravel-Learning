@@ -135,3 +135,20 @@ route::post('/submitform' ,function(){
 
 // basic controller so that i can access its fxn 
 Route::get('/formsubmit',[Formcontroller::class,'submit']);
+
+
+Route::view('/', 'signup');
+
+Route::post('/submitform', [FormController::class,'submit']);
+
+
+
+use App\Http\Controllers\Registration;
+
+Route::get('/register', [Registration::class,'create']);
+Route::post('/register', [Registration::class,'store']);
+
+
+
+
+

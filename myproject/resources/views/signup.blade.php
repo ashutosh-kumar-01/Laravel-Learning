@@ -1,28 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
+    <title>Signup Form</title>
 </head>
 <body>
+
+@if ($errors->any())
+    <div style="color:red;">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <form method="POST" action="/submitform">
     @csrf
 
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name">
-    <br><br>
+    <label>Enter Username:</label>
+    <input type="text" name="username" placeholder="Enter username"><br><br>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email">
-    <br><br>
+    <label>Enter Name:</label>
+    <input type="text" name="name" placeholder="Enter name"><br><br>
 
-    <label for="message">Message:</label>
-    <textarea id="message" name="message"></textarea>
-    <br><br>
+    <label>Enter Email:</label>
+    <input type="email" name="email" placeholder="Enter email"><br><br>
 
-    <input type="submit" value="Submit">
+    <label>Enter Password:</label>
+    <input type="password" name="password" placeholder="Enter password"><br><br>
+
+    <input type="submit" value="SUBMIT">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
 </form>
 
 </body>

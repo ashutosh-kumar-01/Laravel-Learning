@@ -4,16 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Formcontroller extends Controller
+class FormController extends Controller
 {
     public function submit(Request $request)
     {
-        $validated = $request->validate([
-            'name' => ['required','regex:/^[A-Za-z\s]+$/'],
-            'email' => ['required','email'],
-            'message' => ['required','string','max:1000']
+        $request->validate([
+            "name" => "required|min:1|max:15|regex:/^[A-Za-z\s]+$/",
+            "username" => "required|min:1|max:20|regex:/^[A-Za-z0-9_]+$/",
+            "email" => "required|email",
+            "password" => "required|min:8|max:20|regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*]).+$/"
         ]);
 
-        return back()->with('success','Form submitted successfully');
+        $name = $request->name;
+        $email = $request->email;
+        $username = $request->username;
+        $token = $request->_token;
+
+        return "
+        <h2>Form Submitted Successfully</h2>
+        <p>Name: $name</p>
+        <p>Username: $username</p>
+        <p>Email: $email</p>
+        ";
     }
 }
