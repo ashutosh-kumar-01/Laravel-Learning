@@ -97,7 +97,7 @@
                                     <span class="input-group-text"><i class="fa fa-book"></i></span>
                                     <select name="course" class="form-control">
                                         <option value="">Select Course</option>
-                                        <option>B.Tech</option>
+                                        <option>abc</option>
                                         <option>BCA</option>
                                         <option>MCA</option>
                                         <option>MBA</option>
