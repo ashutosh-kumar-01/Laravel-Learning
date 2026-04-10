@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class FormController extends Controller
 {
-    public function submit(Request $request)
+    public function submitForm(Request $request)
     {
         $request->validate([
             "name" => "required|min:1|max:15|regex:/^[A-Za-z\s]+$/",

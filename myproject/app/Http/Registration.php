@@ -23,15 +23,15 @@ class Registration extends Controller
             'age' => 'required|integer|min:18',
             'course' => 'required',
             'password' => 'required|min:8'
-        ]);
+        ],
+        [
+            "name.min" => "Minimum 3 characters required",
+            "name.max" => "Maximum 50 characters allowed",
+            "name.regex" => "Only letters and spaces are allowed",
+        ]
+        );
 
-        Student::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'age'=>$request->age,
-            'course'=>$request->course,
-            'password'=>Hash::make($request->password)
-        ]);
+        
 
         return redirect('/register')->with('success','Registration Successful');
     }
