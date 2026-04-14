@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BasicController; // import the controller class to use its function in the route
 use App\Http\Controllers\Formcontroller;
+use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -191,3 +192,7 @@ Route::get('/masterr',function(){
     return view('master');
 });
 
+
+
+Route::view('/login', 'loginpage');
+Route::post('/loginSubmit', [LoginController::class, 'login'])->name('login.submit');
