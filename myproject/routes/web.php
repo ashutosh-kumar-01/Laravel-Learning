@@ -193,6 +193,6 @@ Route::get('/masterr',function(){
 });
 
 
-
+// Route::get('/logoutsubmit', )
 Route::view('/login', 'loginpage');
 Route::post('/loginSubmit', [LoginController::class, 'login'])->name('login.submit');
