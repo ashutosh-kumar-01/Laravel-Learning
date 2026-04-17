@@ -11,6 +11,7 @@ class LoginController extends Controller
         $request->session()->put('username', $request->input('username'));
         // $username = $request->input('username');
         // return $username;
-        return redirect('/');
+        // return redirect('/');
+        echo session('username');
     }
 }
