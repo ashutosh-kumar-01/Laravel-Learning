@@ -33,6 +33,8 @@
                             </div>
                         </div>
                         <div class="hidden sm:flex sm:items-center sm:ml-6 space-x-4">
+                            <a href="{{ url('lang/en') }}" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">English</a>
+                            <a href="{{ url('lang/hi') }}" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Hindi</a>
                             <a href="{{ url('/lpu/student') }}" class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Log in</a>
                             <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Register</a>
                         </div>
@@ -63,12 +65,12 @@
                                     <span class="block text-blue-600 xl:inline">academic journey</span>
                                 </h1>
                                 <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                                    Access your courses, track your grades, and connect with faculty—all in one place. Streamline your student experience with our intuitive portal.
+                                    {{ __('welcome.heading') }}
                                 </p>
                                 <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                     <div class="rounded-md shadow">
                                         <a href="{{ url('/lpu/student') }}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition duration-150 ease-in-out">
-                                            Student Login
+                                            {{ __('welcome.subheading') }}
                                         </a>
                                     </div>
                                     <div class="mt-3 sm:mt-0 sm:ml-3">

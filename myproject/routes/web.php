@@ -4,6 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BasicController; // import the controller class to use its function in the route
 use App\Http\Controllers\Formcontroller;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MailController;
+use App\Mail\WelcomeEmail;
+
+Route::get('/send-email-form', function () {
+    return view('send-email-form');
+});
+
+Route::get('/send-email', [MailController::class, 'sendEmail']);
 
 Route::get('/', function () {
     return view('welcome');
@@ -196,3 +204,10 @@ Route::get('/masterr',function(){
 // Route::get('/logoutsubmit', )
 Route::view('/login', 'loginpage');
 Route::post('/loginSubmit', [LoginController::class, 'login'])->name('login.submit');
+
+Route::get('lang/{locale}', function ($locale) {
+    session()->put('locale', $locale);
+    return redirect()->back();
+});
+
+Route::get('/send-email', [MailController::class, 'sendEmail']);
